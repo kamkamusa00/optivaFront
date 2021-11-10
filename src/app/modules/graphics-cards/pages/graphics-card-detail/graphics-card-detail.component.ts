@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { getRouteParam } from '@shared/functions/getRouteParam.lib';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './graphics-card-detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GraphicsCardDetailComponent {
+export class GraphicsCardDetailComponent implements  OnInit {
   id: number;
   card$: Observable<GraphicsCardI>;
   constructor(
@@ -20,9 +20,11 @@ export class GraphicsCardDetailComponent {
     private store: Store<AppState>
   ) {
     this.id = Number(getRouteParam(this.activeRoute, 'id'));
-    this.setCard();
   }
 
+  ngOnInit():void{
+    this.setCard();
+  }
   private setCard(): void {
     this.card$ = this.store.select((state) => {
       const card = state?.graphicsCards?.find(

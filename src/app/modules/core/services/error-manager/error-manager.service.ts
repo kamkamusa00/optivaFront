@@ -6,7 +6,6 @@ export class ErrorManagerService {
   constructor() {}
 
   showError(error: HttpErrorResponse): void {
-    debugger;
     alert(error.message); //TODO improve modals
   }
 }

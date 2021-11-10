@@ -1,3 +1,4 @@
+<ng-container *ngIf="graphicsCards?.length">
 <div *ngFor="let card of graphicsCards" class="listItem" (click)="onSelect(card.id)">
   <figure class="listItem__imgWrapper">
     <img src="{{ card.img }}" class="listItem__img" />
@@ -7,3 +8,5 @@
     <p><strong>{{ card.price }}</strong></p>
   </div>
 </div>
+</ng-container>
+<div *ngIf="!graphicsCards?.length">No data</div>

@@ -89,7 +89,6 @@ export class FormErrorDirective implements AfterViewInit {
   }
 
   private showError(errorText: string): void {
-    console.log(errorText);
     if (!this.ref) {
       const factory = this.cfr.resolveComponentFactory(ErrorTextComponent);
       this.ref = this.errorPositionRef.createComponent(factory);

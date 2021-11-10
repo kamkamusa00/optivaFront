@@ -10,6 +10,6 @@ export class GraphicsCardsService {
   }
 
   getAll ():Observable<GraphicsCardI[]>{
-    return this.http.get<GraphicsCardI[]>('/graphics-cardss');
+    return this.http.get<GraphicsCardI[]>('/graphics-cards');
   }
 }

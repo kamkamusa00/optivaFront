@@ -10,7 +10,6 @@ const routes: Routes = [
     component: GraphicsCardDetailComponent
   },
 ];
-console.log('graphics module');
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

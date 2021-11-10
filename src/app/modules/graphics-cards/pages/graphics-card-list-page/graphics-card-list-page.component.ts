@@ -37,7 +37,6 @@ export class GraphicsCardListPageComponent {
   }
 
   onCardSelected(id: number): void {
-    console.log('card selected');
     this.router.navigate([String(id)], {
       relativeTo: this.activeRoute,
     });
