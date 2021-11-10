@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import { trackById } from '@shared/functions/trackById.lib';
 import { GraphicsCardI } from '@shared/models/graphicsCards.model';
 
 @Component({
@@ -9,6 +10,7 @@ import { GraphicsCardI } from '@shared/models/graphicsCards.model';
 export class GraphicsCardsListComponent {
   @Input() graphicsCards :GraphicsCardI[] = [];
   @Output() cardSelected = new EventEmitter<number>();
+  trackById=trackById;
   constructor(){}
 
   onSelect(id:number):void{

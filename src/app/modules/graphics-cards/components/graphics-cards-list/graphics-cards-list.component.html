@@ -1,5 +1,5 @@
 <ng-container *ngIf="graphicsCards?.length">
-<div *ngFor="let card of graphicsCards" class="listItem" (click)="onSelect(card.id)">
+<div *ngFor="let card of graphicsCards; trackBy:trackById" class="listItem" (click)="onSelect(card.id)">
   <figure class="listItem__imgWrapper">
     <img src="{{ card.img }}" class="listItem__img" />
   </figure>

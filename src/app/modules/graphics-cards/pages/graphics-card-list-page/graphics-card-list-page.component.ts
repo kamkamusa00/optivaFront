@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
 export class GraphicsCardListPageComponent {
   graphicsCards$: Observable<GraphicsCardI[]>;
   isLoading$: Observable<string[]>;
-  name = new FormControl('',[Validators.maxLength(10)]);
+  name = new FormControl('', [Validators.maxLength(10)]);
   readonly target = loadingTargets.graphicsCardsList;
 
   constructor(

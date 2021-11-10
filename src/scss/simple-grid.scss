@@ -180,6 +180,14 @@ $screen-lg: 744px;
     }
 }
 
+.d-flex{
+  display: flex;
+}
+.d-flex-center{
+  display: flex;
+  align-items: center;
+}
+
 .col {
     box-sizing: border-box;
     -webkit-flex: 0 0 auto;
