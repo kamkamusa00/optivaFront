@@ -8,6 +8,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -18,8 +19,14 @@
     "module": "es2020",
     "lib": [
       "es2018",
-      "dom"
-    ]
+      "dom",
+      "dom.iterable"
+    ],
+    "paths":{
+      "@env/*": ["src/environments/*"],
+      "@shared/*": ["src/app/modules/shared/*"],
+      "@store/*": ["src/app/modules/core/store/*"],
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

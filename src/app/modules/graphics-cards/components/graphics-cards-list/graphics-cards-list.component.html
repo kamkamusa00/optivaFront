@@ -1,0 +1,9 @@
+<div *ngFor="let card of graphicsCards" class="listItem" (click)="onSelect(card.id)">
+  <figure class="listItem__imgWrapper">
+    <img src="{{ card.img }}" class="listItem__img" />
+  </figure>
+  <div>
+    <p class="mt-0">{{ card.name}}</p>
+    <p><strong>{{ card.price }}</strong></p>
+  </div>
+</div>

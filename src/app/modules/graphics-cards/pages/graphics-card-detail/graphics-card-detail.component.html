@@ -1,0 +1,47 @@
+<ng-container *ngIf="card$ | async as card">
+  <section class="container">
+    <header>
+      <h2>
+        <button class="button" routerLink="../"><</button>
+        {{ card.name }}</h2>
+      <hr />
+    </header>
+    <article class="grid">
+      <div class="col col-md">
+        <img src="{{ card.img }}" class="fit-width" />
+      </div>
+      <div class="col col-md">
+        <div class="grid pb-2 pt-2">
+          <div class="col col-md-6">
+            <div>id:</div>
+            <div>{{ card.id }}</div>
+          </div>
+          <div class="col col-md-6">
+            <div>model:</div>
+            <div>{{ card.model }}</div>
+          </div>
+        </div>
+        <div class="grid pb-2">
+          <div class="col col-md-6">
+            <div>manufacturer:</div>
+            <div>{{ card.manufacturer }}</div>
+          </div>
+          <div class="col col-md-6">
+            <div>assembler:</div>
+            <div>{{ card.assembler }}</div>
+          </div>
+        </div>
+        <div class="grid pb-2">
+          <div class="col col-md-6">
+            <div>price:</div>
+            <div>{{ card.price }}</div>
+          </div>
+          <div class="col col-md-6">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</ng-container>

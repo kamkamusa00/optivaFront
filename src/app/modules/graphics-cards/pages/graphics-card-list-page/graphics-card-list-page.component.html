@@ -1,0 +1,27 @@
+<h2 class="titleInput">
+  Graphics Cards
+  <input
+    class="input"
+    placeholder="buscar..."
+    type="text"
+    [formControl]="name"
+  />
+</h2>
+<hr />
+
+<section
+  class="scrollableArea"
+  infiniteScroll
+  [infiniteScrollDistance]="0.3"
+  (scrolled)="onScroll()"
+>
+  <app-graphics-cards-list
+    [graphicsCards]="graphicsCards$ | async"
+    (cardSelected)="onCardSelected($event)"
+  >
+  </app-graphics-cards-list>
+  <div
+    [class.hidden]="!(isLoading$ | async).includes(target)"
+    class="spinner"
+  ></div>
+</section>
