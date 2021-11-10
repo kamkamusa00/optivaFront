@@ -5,10 +5,10 @@ import { GraphicsCardsListComponent } from './components/graphics-cards-list/gra
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { GraphicsCardDetailComponent } from './pages/graphics-card-detail/graphics-card-detail.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@shared/modules/forms/forms.module';
 
 @NgModule({
-  imports: [GraphicsCardsRoutingModule, InfiniteScrollModule, CommonModule, ReactiveFormsModule],
+  imports: [GraphicsCardsRoutingModule, InfiniteScrollModule, CommonModule, FormsModule],
   providers: [],
   declarations: [GraphicsCardListPageComponent, GraphicsCardsListComponent, GraphicsCardDetailComponent],
 })

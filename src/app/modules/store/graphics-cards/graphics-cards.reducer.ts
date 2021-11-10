@@ -20,9 +20,6 @@ const _cardsReducer = createReducer(
     const newState = cloneDeep(state);
     return [...newState, ...action.cards];
   }),
-  on(cardsActions.checkState, (state) => {
-    return state;
-  })
 );
 
 export function cardsReducer(state: GraphicsCardI[], action: Action) {

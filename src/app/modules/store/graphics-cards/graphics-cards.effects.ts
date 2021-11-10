@@ -8,6 +8,7 @@ import { AppState } from './models/state.model';
 import { Store } from '@ngrx/store';
 import * as loadingActions from '@store/is-loading/is.loading.actions';
 import { loadingTargets } from '@store/is-loading/loading.const';
+import { ErrorManagerService } from '../../core/services/error-manager/error-manager.service';
 
 const target = loadingTargets.graphicsCardsList;
 
@@ -16,7 +17,8 @@ export class GraphicsCardsEffects {
   constructor(
     private actions$: Actions,
     private graphicsCardsService: GraphicsCardsService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private errorService: ErrorManagerService
   ) {}
 
   loadCards$ = createEffect(() =>
@@ -26,7 +28,10 @@ export class GraphicsCardsEffects {
       mergeMap(() =>
         this.graphicsCardsService.getAll().pipe(
           map((cards) => cardsActions.cardsLoaded({ cards })),
-          catchError(() => of(cardsActions.cardsLoadError()))
+          catchError((error) => {
+            this.errorService.showError(error);
+            return of(loadingActions.stop({target}));
+          })
         )
       )
     )
@@ -46,16 +51,19 @@ export class GraphicsCardsEffects {
       mergeMap(() =>
         this.graphicsCardsService.getAll().pipe(
           map((cards) => cardsActions.appendCardspageLoaded({ cards })),
-          catchError(() => of(cardsActions.cardsLoadError()))
+          catchError((error) => {
+            this.errorService.showError(error);
+            return of(loadingActions.stop({target}));
+          })
         )
       )
-    )
+    ),
   );
 
   appendCardsLoaded$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(cardsActions.appendCardspageLoaded.type),
-    map(() => loadingActions.stop({ target }))
-  )
-);
+    this.actions$.pipe(
+      ofType(cardsActions.appendCardspageLoaded.type),
+      map(() => loadingActions.stop({ target }))
+    )
+  );
 }

@@ -5,7 +5,7 @@ import { AppState } from '@store/graphics-cards/models/state.model';
 import * as cardsActions from '@store/graphics-cards/graphics-cards.actions';
 import { loadingTargets } from '@store/is-loading/loading.const';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
 import { GraphicsCardI } from '@shared/models/graphicsCards.model';
 import { map } from 'rxjs/operators';
@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
 export class GraphicsCardListPageComponent {
   graphicsCards$: Observable<GraphicsCardI[]>;
   isLoading$: Observable<string[]>;
-  name = new FormControl();
+  name = new FormControl('',[Validators.maxLength(10)]);
   readonly target = loadingTargets.graphicsCardsList;
 
   constructor(

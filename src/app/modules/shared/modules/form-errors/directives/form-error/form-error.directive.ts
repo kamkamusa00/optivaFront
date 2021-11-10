@@ -7,19 +7,19 @@ import {
   Host,
   ViewContainerRef,
   ComponentRef,
-  ComponentFactoryResolver
+  ComponentFactoryResolver,
 } from '@angular/core';
 import { ControlContainer, NgControl } from '@angular/forms';
 
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { FormSubmitGroupI } from '@shared/modules/form-errors/model/form-submit-group.model';
 import { ErrorTextComponent } from '../../components/error-text/error-text.component';
 import { VALIDATORS_ERROR_MESSAGES } from '../../consts/validation-error-messages';
-import { FormSubmitGroupI } from '../../model/form-submit-group.model';
 import { ErrorAfterThis } from '../error-after-this/error-after-this.directive';
 
 @UntilDestroy()
 @Directive({
-  selector: '[showFormError]'
+  selector: '[controlFormError]',
 })
 export class FormErrorDirective implements AfterViewInit {
   domErrorText = '';
@@ -64,7 +64,7 @@ export class FormErrorDirective implements AfterViewInit {
   }
 
   private subscribeToFormStatusChanges(): void {
-    this.parent.control.statusChanges
+    this.parent?.control.statusChanges
       .pipe(untilDestroyed(this))
       .subscribe(() => {
         this.onControlChange();
@@ -73,7 +73,9 @@ export class FormErrorDirective implements AfterViewInit {
 
   private canShowError(): boolean {
     const formGroup = this.parent?.control as FormSubmitGroupI;
-    return this.control.touched || formGroup?.submitted;
+    return formGroup
+      ? this.control.touched || formGroup.submitted
+      : this.control.touched;
   }
 
   private hasErrors(): boolean {
@@ -103,6 +105,7 @@ export class FormErrorDirective implements AfterViewInit {
   }
 
   private onControlChange(): void {
+    this.control.control.markAsTouched();
     if (this.hasErrors()) {
       this.setError();
     } else if (this.ref?.instance?.text) {

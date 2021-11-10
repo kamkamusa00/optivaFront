@@ -4,6 +4,6 @@ import { FormErrorsModule } from '../form-errors/form-errors.module';
 
 
 @NgModule({
-  imports: [FormErrorsModule, ReactiveFormsModule],
+  exports: [ ReactiveFormsModule, FormErrorsModule],
 })
 export class FormsModule {}

@@ -105,6 +105,18 @@ p {
   padding: 10px;;
 }
 
+.fieldError{
+  color: #AA0000;
+  background:rgba(#AA0000,.2);
+  border:1px solid #b42e2e;
+  border-radius: 3px;
+  position: absolute;
+  font-size: 12px;
+  margin-top: 4px;
+  padding: 3px 10px;
+  z-index: 1;
+}
+
 .button{
   background: #FF9900;
   font-weight: 700;
@@ -117,10 +129,8 @@ p {
   border-radius: 3px;;
   font-size: 21px;
   &:hover{
-    background: #FF6600;
-
+    background: #c2530a;
   }
-
 }
 
 /* ==== GRID SYSTEM ==== */

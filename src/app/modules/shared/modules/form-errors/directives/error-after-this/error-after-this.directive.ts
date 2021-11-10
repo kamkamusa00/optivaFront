@@ -1,7 +1,7 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[showErrorAfterThis]'
+  selector: '[errorAfterThis]'
 })
 export class ErrorAfterThis {
   constructor(public viewConRef: ViewContainerRef) {}

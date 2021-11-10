@@ -1,11 +1,16 @@
-<h2 class="titleInput">
-  Graphics Cards
-  <input
-    class="input"
-    placeholder="buscar..."
-    type="text"
-    [formControl]="name"
-  />
+<h2>
+  <div class="titleInput">
+    Graphics Cards
+    <div>
+      <input
+        [formControl]="name"
+        controlFormError
+        class="input"
+        placeholder="buscar..."
+        type="text"
+      />
+    </div>
+  </div>
 </h2>
 <hr />
 
