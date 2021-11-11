@@ -75,3 +75,7 @@ I resolved filter in the store.select each time we write characterss in filter f
 ## Detail
 
 In back API doesn´t exists graphic card detail end point, then I decidec to navigate to list component if the user refresh the page because the store will be erased.
+
+## Lint 
+
+Eslint is used to lint the proyect.

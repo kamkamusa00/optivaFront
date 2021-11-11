@@ -1,6 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as loadingActions from './is.loading.actions';
-import { GraphicsCardI } from '@shared/models/graphicsCards.model';
 
 const initialState: string[] = [];
 

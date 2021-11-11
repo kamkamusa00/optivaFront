@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface ObjectWithId{
   [key:string]:any;
   id:number;

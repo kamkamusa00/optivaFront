@@ -1,0 +1,9 @@
+{
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports":true,
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript", "typescript"],
+
+}

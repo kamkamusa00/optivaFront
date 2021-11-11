@@ -1,19 +1,12 @@
-import {
-  ComponentFixture,
-  TestBed,
-} from '@angular/core/testing';
-import { GraphicsCardListPageComponent } from './graphics-card-list-page.component';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { FormsModule } from '@shared/modules/forms/forms.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { GraphicsCardsService } from '@store/graphics-cards/services/graphics-cards.service';
-import { errorManagerMock } from '@shared/mocks/error-manager-service.mock';
-import { ErrorManagerService } from './../../../core/services/error-manager/error-manager.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { graphicsCardsServiceMock } from '@shared/mocks/graphics-card-service.mock';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
 import { storeMock } from '@shared/mocks/store.mock';
-import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@shared/modules/forms/forms.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { GraphicsCardListPageComponent } from './graphics-card-list-page.component';
 
 describe('GraphicsCardListPageComponent', () => {
   let component: GraphicsCardListPageComponent;
@@ -43,7 +36,7 @@ describe('GraphicsCardListPageComponent', () => {
 
   it('should navigate if cardSelected event is emitted', () => {
     const router = TestBed.inject(Router);
-    const spy = jest.spyOn<any, any>(router, 'navigate').mockReturnValue(null);
+    const spy = jest.spyOn(router, 'navigate').mockReturnValue(null);
     const event = new CustomEvent('cardSelected', {
       detail: 8,
     });
@@ -62,9 +55,8 @@ describe('GraphicsCardListPageComponent', () => {
     });
     const eventEmitter = fixture.debugElement.nativeElement.querySelector(
       'section'
-      ) as HTMLElement;
-      eventEmitter.dispatchEvent(scrollEvent);
-      expect(spy).toHaveBeenCalled();
+    ) as HTMLElement;
+    eventEmitter.dispatchEvent(scrollEvent);
+    expect(spy).toHaveBeenCalled();
   });
-
 });

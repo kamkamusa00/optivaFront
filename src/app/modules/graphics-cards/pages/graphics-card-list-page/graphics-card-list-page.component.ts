@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { AppState } from '@store/graphics-cards/models/state.model';
-import * as cardsActions from '@store/graphics-cards/graphics-cards.actions';
-import { loadingTargets } from '@store/is-loading/loading.const';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Store } from '@ngrx/store';
 import { GraphicsCardI } from '@shared/models/graphicsCards.model';
+import * as cardsActions from '@store/graphics-cards/graphics-cards.actions';
+import { AppState } from '@store/graphics-cards/models/state.model';
+import { loadingTargets } from '@store/is-loading/loading.const';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @UntilDestroy()
